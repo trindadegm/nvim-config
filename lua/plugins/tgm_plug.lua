@@ -27,6 +27,12 @@ return {
   { "echasnovski/mini.pairs", enabled = false },
   -- { "stevearc/conform.nvim",  enabled = false },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
