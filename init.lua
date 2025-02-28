@@ -22,8 +22,11 @@ require('lspconfig').ltex.setup({
   end,
 })
 
+require('lspconfig').nushell.setup({})
+
 require('neo-tree').setup({
   filesystem = {
+    bind_to_cwd = false,
     filtered_items = {
       visible = true, -- When this is set to true, hiding just means making it dim
       hide_dotfiles = false, -- So this will show fully visible
@@ -31,3 +34,16 @@ require('neo-tree').setup({
     }
   }
 })
+
+---@type table<string, ParserInfo>
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+parser_config.nu = {
+  install_info = {
+    url = "https://github.com/nushell/tree-sitter-nu",
+    files = { "src/parser.c" },
+    branch = "main",
+  },
+  filetype = "nu",
+  maintainers = {},
+}
