@@ -1,6 +1,13 @@
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 vim.g.editorconfig = true
 
+vim.filetype.add({
+  extension = {
+    jinja = "jinja",
+    jinja2 = "jinja",
+  },
+})
+
 return {
   {
     "LazyVim/LazyVim",
@@ -75,5 +82,13 @@ return {
         },
       },
     },
+  },
+  {
+    "echanovski/mini.pairs",
+    enabled = false,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    enabled = true,
   },
 }
