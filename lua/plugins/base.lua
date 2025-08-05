@@ -1,26 +1,24 @@
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 vim.g.editorconfig = true
 
-vim.filetype.add({
-  extension = {
-    jinja = "jinja",
-    jinja2 = "jinja",
-  },
-})
-
 return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      -- colorscheme = "catppuccin",
     },
   },
   {
     "hrsh7th/nvim-cmp",
+    enabled = true,
     dependencies = { "hrsh7th/cmp-emoji" },
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
-    end,
+    -- opts = function(_, opts)
+    --   table.insert(opts.sources, { name = "emoji" })
+    -- end,
+  },
+  {
+    "rafamadriz/friendly-snippets",
+    enabled = false,
   },
   {
     "neovim/nvim-lspconfig",
@@ -29,6 +27,23 @@ return {
         enabled = false,
       },
     },
+    config = function()
+      local lspconfig = require("lspconfig")
+
+      lspconfig.ltex.setup({
+        settings = {
+          ltex = {
+            checkFrequency = "save",
+            language = "en-US",
+            additionalRules = {
+              motherTongue = "pt-BR",
+            },
+          },
+        },
+      })
+
+      --vim.notify("Ran through LSP configurations!")
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -84,8 +99,8 @@ return {
     },
   },
   {
-    "echanovski/mini.pairs",
-    enabled = false,
+    "echasnovski/mini.pairs",
+    enabled = true,
   },
   {
     "mfussenegger/nvim-dap",
