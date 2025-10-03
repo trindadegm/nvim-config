@@ -1,5 +1,4 @@
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
-vim.g.editorconfig = true
 
 return {
   {
@@ -35,9 +34,6 @@ return {
           ltex = {
             checkFrequency = "save",
             language = "en-US",
-            additionalRules = {
-              motherTongue = "pt-BR",
-            },
           },
         },
       })
@@ -69,13 +65,19 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "flake8",
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      {
+        "mason-org/mason.nvim",
+        opts = {
+          ensure_installed = {
+            "stylua",
+            "shellcheck",
+            "shfmt",
+            "flake8",
+          },
+        },
       },
     },
   },
@@ -99,7 +101,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     enabled = true,
   },
   {
