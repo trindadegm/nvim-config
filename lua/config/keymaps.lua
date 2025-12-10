@@ -28,3 +28,5 @@ map("n", "<leader>çe", function()
     vim.notify("Could not find LTeX client")
   end
 end, { desc = "Set LTeX language to en-US" })
+
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
