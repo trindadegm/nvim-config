@@ -29,4 +29,10 @@ map("n", "<leader>çe", function()
   end
 end, { desc = "Set LTeX language to en-US" })
 
-map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+-- map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+--
+-- local snacks = require("snacks")
+
+-- Snacks find symbols
+-- map("n", "<leader>ss", snacks.picker.lsp_symbols, { desc = "Find symbols" })
+-- map("n", "<leader>sS", snacks.picker.lsp_workspace_symbols, { desc = "Find workspace symbols" })

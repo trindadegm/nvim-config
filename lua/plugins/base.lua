@@ -20,50 +20,6 @@ return {
     enabled = false,
   },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      inlay_hints = {
-        enabled = false,
-      },
-    },
-    config = function()
-      local lspconfig = require("lspconfig")
-
-      lspconfig.ltex.setup({
-        settings = {
-          ltex = {
-            checkFrequency = "save",
-            language = "en-US",
-          },
-        },
-      })
-
-      vim.lsp.enable("csharp_ls")
-
-      vim.lsp.config("godot", {
-        filetypes = { "godot", "gdscript", "gd" },
-        cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
-      })
-
-      vim.lsp.enable("godot")
-
-      vim.lsp.config("pylsp", {
-        settings = {
-          pylsp = {
-            plugins = {
-              pycodestyle = {
-                maxLineLength = 200,
-              },
-            },
-          },
-        },
-      })
-      vim.lsp.enable("pylsp")
-
-      --vim.notify("Ran through LSP configurations!")
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
